@@ -14,18 +14,6 @@ int main(int argc, char **argv) {
 	//set capture params
 	Camera.set(CV_CAP_PROP_FORMAT, CV_8UC3);
 
-	double frameWidth	= Camera.get(CV_CAP_PROP_FRAME_WIDTH);
-	double frameHeight	= Camera.get(CV_CAP_PROP_FRAME_HEIGHT);
-	double format		= Camera.get(CV_CAP_PROP_FORMAT);
-	double brightness	= Camera.get(CV_CAP_PROP_BRIGHTNESS);
-	double contrast		= Camera.get(CV_CAP_PROP_CONTRAST);
-	double saturation	= Camera.get(CV_CAP_PROP_SATURATION);
-	double gain			= Camera.get(CV_CAP_PROP_GAIN);
-	double exposure		= Camera.get(CV_CAP_PROP_EXPOSURE);
-	double whiteBalR	= Camera.get(CV_CAP_PROP_WHITE_BALANCE_RED_V);
-	double whiteBalB	= Camera.get(CV_CAP_PROP_WHITE_BALANCE_BLUE_U);
-	double mode			= Camera.get(CV_CAP_PROP_MODE);
-
 	//Open camera
 	cout << "Opening Camera..." << endl;
 	if (!Camera.open()) { cerr << "Error opening the camera" << endl; return -1; }

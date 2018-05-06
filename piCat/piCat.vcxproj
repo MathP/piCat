@@ -46,12 +46,17 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">
     <Link>
-      <LibraryDependencies>wiringPi</LibraryDependencies>
+      <LibraryDependencies>raspicam;raspicam_cv;mmal;mmal_core;mmal_util</LibraryDependencies>
+      <AdditionalOptions>`pkg-config opencv --cflags --libs` %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalLibraryDirectories>/opt/vc/lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
     <RemotePostBuildEvent>
       <Command>gpio export 17 out</Command>
       <Message>export pin 17 using the gpio utility so that we can execute the blink program without sudo</Message>
     </RemotePostBuildEvent>
+    <ClCompile>
+      <AdditionalIncludeDirectories>C:\dev\lib\opencv\build\include;C:\dev\lib\raspicam-master\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">
     <Link>
